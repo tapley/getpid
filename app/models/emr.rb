@@ -1,0 +1,2 @@
+class Emr < ApplicationRecord
+end

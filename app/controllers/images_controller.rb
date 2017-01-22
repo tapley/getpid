@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
 
   def show
+    pp secure_params
     patient = Patient.find_by_image(secure_params.image)
     if patient
       render :json => { patient: patient }

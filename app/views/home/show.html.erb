@@ -1,1 +1,30 @@
-OMG!
+<div class="container">
+  <div class="row" style="padding: 15px;">
+    <div class="col-md-4 col-xs-1">
+      <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" style="max-width: 100%;" />
+      <h1><%= @patient.name %></h1>
+      <h3>Birth date: <%= @patient.birth_date.strftime("%b %d, %YYYY") %></h3>
+      <h3>Sex: <%= @patient.sex %> </h3>
+      <h3>Address: <%= Faker::Address.street_address + ", " + Faker::LordOfTheRings.location %> </h3>
+      <h3>Phone: <%= Faker::PhoneNumber.cell_phone %> </h3>
+    </div>
+    <div class="col-md-4 col-xs-10">
+      <h3>Past diagnoses</h3>
+      <p><%= "#{Faker::Lorem.paragraph(5)} #{Faker::StarWars.quote}" %></p>
+      <h3>Medications</h3>
+      <p><%= Faker::Lorem.words(10).map(&:capitalize).push(Faker::Pokemon.name).join(", ") %></p>
+      <h3>Allergies</h3>
+      <p><%= Faker::Lorem.words(10).map(&:capitalize).push(Faker::Pokemon.name).join(", ") %></p>
+      <h3>Contacts</h3>
+      <p><%= "#{Faker::StarWars.character} (#{Faker::PhoneNumber.cell_phone})" %></p>
+      <p><%= "#{Faker::LordOfTheRings.character} (#{Faker::PhoneNumber.cell_phone})" %></p>
+      <p><%= "#{Faker::GameOfThrones.character} (#{Faker::PhoneNumber.cell_phone})" %></p>
+    </div>
+    <div class="col-md-4 col-xs-1">
+      <h3>Patient Recommendations</h3>
+      <p><%= "#{Faker::Lorem.paragraph(10)} #{Faker::StarWars.quote}" %></p>
+      <h3>Medical Decision Making</h3>
+      <p><%= "#{Faker::Lorem.paragraph(10)} #{Faker::StarWars.quote}" %></p>
+    </div>
+  </div>
+</div>

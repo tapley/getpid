@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121192451) do
+ActiveRecord::Schema.define(version: 20170122130404) do
 
   create_table "emrs", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170121192451) do
     t.string   "aws_patient_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "last_seen"
+    t.string   "sex"
     t.index ["emr_id"], name: "index_patients_on_emr_id"
   end
 

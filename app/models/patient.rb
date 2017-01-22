@@ -15,6 +15,8 @@ class Patient < ApplicationRecord
   end
 
   def self.find_by_image(image)
+    return if !image
+    
     rekognition = self.new_rekognition_client
     response = rekognition.search_faces_by_image({
       collection_id: ENV['AWS_COLLECTION_ID'], # required

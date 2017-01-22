@@ -16,7 +16,7 @@ class Patient < ApplicationRecord
 
   def self.find_by_image(image)
     return if !image
-    
+
     rekognition = self.new_rekognition_client
     response = rekognition.search_faces_by_image({
       collection_id: ENV['AWS_COLLECTION_ID'], # required
@@ -24,7 +24,7 @@ class Patient < ApplicationRecord
       max_faces: 1,
       face_match_threshold: 0.99,
     })
-
+    
     pp response
 
     (response.face_matches.length == 1) ? Patient.where(aws_patient_id: response.face_matches.first.face.face_id).first : nil
